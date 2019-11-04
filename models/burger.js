@@ -1,11 +1,5 @@
 var orm = require("../config/orm");
 
-orm.selectAll("burgers");
-
-orm.insertOne("burgers", "burger_name", "devoured", "Triple Hoagie Mega Burger", false);
-
-orm.updateOne("burgers", "ULTRA UPDATE BURGER 2.0", "id", "1");
-
 var burger = {
     selectAll: function(cb) {
       orm.selectAll("burgers", function(res) {
@@ -25,4 +19,4 @@ var burger = {
     },
   };
 
-module.exports(burger);
+module.exports = burger;
