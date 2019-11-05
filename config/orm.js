@@ -32,6 +32,7 @@ function objToSql(ob) {
   }
 
   // translate array of strings to a single comma-separated string
+  console.log(arr);
   return arr.toString();
 }
 
@@ -47,7 +48,7 @@ var orm = {
     });
   },
   selectOne: function(table, cols, vals, cb) {
-    var queryString = "SELECT * FROM " + table;
+    var queryString = "SELECT  FROM " + table;
 
     queryString += " WHERE";
     queryString += cols.toString();

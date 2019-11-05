@@ -9,13 +9,13 @@ router.get("/", function(req, res) {
     });
   });
   
-  router.post("/api/burgers", function(req, res) {
+  router.post("/api/burgers/:id", function(req, res) {
     burger.selectOne([
       "burger_name", "devoured"
     ], [
       req.body.burger_name, req.body.devoured
     ], function(result) {
-
+      console.log(req.body);
       res.json({ id: result.insertId });
     });
   });
@@ -33,6 +33,8 @@ router.get("/", function(req, res) {
       } else {
         res.status(200).end();
       }
+      console.log(req.body);
+      console.log(result);
     });
   });
   
