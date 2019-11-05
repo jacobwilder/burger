@@ -2,26 +2,20 @@
 
 <h2>Time to devour a burger! Pick one!</h2>
 
-<ul>
-  {{#each burger}}
+<ul class="undevoured burgerList">
+  {{#each burgers}}
     {{#unless devoured}}
-    <button class="change-devoured" data-id="{{id}}" data-newdevoured="{{devoured}}">
-		{{#if devoured}}Regurgitate!{{else}}Devour!{{/if}}
-	</button>
-      {{this.burger_name}}
+      {{> burgers/burger-block devoured=false}}
     {{/unless}}
   {{/each}}
 </ul>
 
 <h2>Devoured!</h2>
 
-<ul>
-  {{#each burger}}
+<ul class="devoured burgerList">
+  {{#each burgers}}
     {{#if devoured}}
-    <button class="change-devoured" data-id="{{id}}" data-newdevoured="{{devoured}}">
-		{{#if devoured}}Regurgitate!{{else}}Devour!{{/if}}
-	</button>
-      <li>{{this.burger_name}}</li>
+      {{> burgers/burger-block devoured=true}}
     {{/if}}
   {{/each}}
 </ul>
@@ -31,8 +25,8 @@
 
   <div class="form-group">
     <label for="ca">Burger Name:</label>
-    <input type="text" id="ca" name="name">
+    <input type="text" id="ca" name="burger_name">
   </div>
-  <button class="newBurger" type="submit">Add Burger</button>
+  <button type="submit">Add Burger</button>
 </form>
 
